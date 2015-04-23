@@ -1,0 +1,27 @@
+#page 90-91 5.5.3 in paragraph Installing GRUB on an External Storage Device
+the book mentions :
+grub-install --boot-directory=/mnt/boot /dev/sdc , but it seems wrong and the correct should be :
+  grub-install --root-directory=/mnt/boot /dev/sdc
+
+
+#page 121-122 6.7 Shutting Down Your System
+  The book mentions 
+1. init asks every process to shut down cleanly.
+2. If a process doesn’t respond after a while, init kills it, first trying a TERM signal.
+3. If the TERM signal doesn’t work, init uses the KILL signal on any stragglers.
+4. The system locks system files into place and makes other preparations for shutdown.
+5. The system unmounts all filesystems other than the root.
+6. The system remounts the root filesystem read-only.
+7. The system writes all buffered data out to the filesystem with the sync program.
+8. The final step is to tell the kernel to reboot or stop with the reboot(2) system call. This can be done by init
+or an auxiliary program such as reboot, halt, or poweroff.
+  But it seems to me that this is a more logical order (I keep the original numbering) : 
+1. init asks every process to shut down cleanly.
+2. If a process doesn’t respond after a while, init kills it, first trying a TERM signal. 
+3. If the TERM signal doesn’t work, init uses the KILL signal on any stragglers.
+7. The system writes all buffered data out to the filesystem with the sync program.
+4. The system locks system files into place and makes other preparations for shutdown.
+5. The system unmounts all filesystems other than the root.
+6. The system remounts the root filesystem read-only.
+8. The final step is to tell the kernel to reboot or stop with the reboot(2) system call. This can be done by init
+or an auxiliary program such as reboot, halt, or poweroff.
