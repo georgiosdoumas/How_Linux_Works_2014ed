@@ -1,7 +1,8 @@
 #page 90-91 5.5.3 in paragraph Installing GRUB on an External Storage Device
-the book mentions :
-grub-install --boot-directory=/mnt/boot /dev/sdc , but it seems wrong and the correct should be :
-  grub-install --root-directory=/mnt/boot /dev/sdc
+  the book mentions :
+grub-install --boot-directory=/mnt/boot /dev/sdc , but it seems wrong and 
+  the correct should be :
+grub-install --root-directory=/mnt/boot /dev/sdc
 
 
 #page 121-122 6.7 Shutting Down Your System
@@ -25,3 +26,11 @@ or an auxiliary program such as reboot, halt, or poweroff.
 6. The system remounts the root filesystem read-only.
 8. The final step is to tell the kernel to reboot or stop with the reboot(2) system call. This can be done by init
 or an auxiliary program such as reboot, halt, or poweroff.
+
+
+#page 132 7.5.2 Network time
+  Book mentions :
+1. Find the closest NTP time server from your ISP or from the ntp.org web page.
+2. Put that time server in /etc/ntpd.conf.
+  But the correct should be (1. is OK , 2. is not : ntpd should be ntp)
+2. Put that time server in /etc/ntp.conf.
