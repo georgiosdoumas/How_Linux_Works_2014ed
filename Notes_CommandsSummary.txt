@@ -1,0 +1,7 @@
+7.2.2 Configuration Files , Extended Syntax
+"The configuration extensions are called directives and usually begin with a $"
+We can see the lines that have a $ with the following grep:
+grep [$] /etc/rsyslog.conf
+and if we want to see only lines that ar not commented with # , we can use
+grep ^[$] /etc/rsyslog.conf
+
