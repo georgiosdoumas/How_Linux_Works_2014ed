@@ -34,3 +34,13 @@ or an auxiliary program such as reboot, halt, or poweroff.
 2. Put that time server in /etc/ntpd.conf.
   But the correct should be (1. is OK , 2. is not : ntpd should be ntp)
 2. Put that time server in /etc/ntp.conf.
+
+
+#page 141 7.10.2 Notes on PAM
+  The book says :
+To find out which PAM modules are present on your system, try man -k pam_ (note the underscore). It
+can be difficult to track down the location of modules. Try the locate unix_pam.so command and see
+where that leads you.
+  A small error in the second sentence , it should be 
+Try the locate pam_unix.so command and see where that leads you.Or use find :
+find / -name '*pam_*.so' 
