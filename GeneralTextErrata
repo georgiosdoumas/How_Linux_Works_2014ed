@@ -44,3 +44,12 @@ where that leads you.
   A small error in the second sentence , it should be 
 Try the locate pam_unix.so command and see where that leads you.Or use find :
 find / -name '*pam_*.so' 
+
+
+#page 203  10.5.3 netcat
+The book mentions :
+"To listen on a particular port, run
+  $ netcat -l -p port_number  "
+But this is wrong syntax. Reading the man pages for nc (netcat) states that option -l cannot be combined with 
+some other options. At the examples section of man pages we can see how we can use the correct
+$ nc -l  port_number
